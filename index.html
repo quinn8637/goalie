@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7e9f2">
+<title>Goalie ✦ — your people, plans & goals</title>
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{--ink:#30283c;--muted:#82788f;--pink:#f4c9df;--lilac:#dcd2ff;--blue:#cce8f7;--mint:#d5f0df;--cream:#fffaf5;--line:#eee6f1;--shadow:0 14px 40px #6c4d7512}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#fff9fc,#f8f5ff 48%,#f1faff);color:var(--ink);font-family:ui-rounded,"SF Pro Rounded",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}
+.shell{max-width:1080px;margin:auto;padding:22px 18px 100px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}.brand{font-size:27px;font-weight:900;letter-spacing:-1.2px}.brand span{color:#b77eaa}.tag{font-size:12px;color:var(--muted);margin-top:3px}.pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 14px;color:var(--ink);font-weight:700;box-shadow:0 4px 16px #5b3d6b08}
+.hero{position:relative;overflow:hidden;border-radius:30px;padding:28px;background:linear-gradient(120deg,#f9d8e8,#e5ddff 58%,#d9eff9);box-shadow:var(--shadow);margin-bottom:18px}.hero:after{content:"✦";position:absolute;right:25px;top:8px;font-size:90px;color:#ffffffa8;transform:rotate(12deg)}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:10px;font-weight:900;color:#725e83}.hero h1{font-size:clamp(30px,6vw,52px);line-height:1.02;letter-spacing:-1.8px;max-width:600px;margin:12px 0}.hero p{color:#5f526f;max-width:470px;line-height:1.5;margin:0 0 20px}.actions{display:flex;gap:10px;flex-wrap:wrap}.primary{background:var(--ink);color:white;border-radius:999px;padding:12px 17px;font-weight:800}.secondary{background:#ffffffc9;color:var(--ink);border:1px solid #ffffff;border-radius:999px;padding:12px 17px;font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 24px}.stat{background:#fff;border:1px solid var(--line);border-radius:22px;padding:17px;box-shadow:var(--shadow)}.stat small{display:block;color:var(--muted);font-size:12px;font-weight:700}.stat strong{display:block;font-size:25px;letter-spacing:-.7px;margin-top:7px}
+.tabs{display:flex;gap:8px;overflow:auto;padding:3px 0 15px}.tab{white-space:nowrap;background:#ffffffa8;border:1px solid var(--line);padding:10px 15px;border-radius:999px;color:var(--muted);font-weight:800}.tab.active{background:var(--ink);color:white;border-color:var(--ink)}
+.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:4px 0 14px}.sectionhead h2{margin:0;font-size:24px;letter-spacing:-.7px}.sectionhead p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:19px;box-shadow:var(--shadow);min-width:0}.goal-top{display:flex;justify-content:space-between;gap:10px;align-items:start}.emoji{font-size:26px}.goal-title{font-size:19px;font-weight:900;margin-top:9px;overflow-wrap:anywhere}.muted{color:var(--muted);font-size:13px}.amount{font-size:26px;font-weight:900;letter-spacing:-.7px;margin-top:18px}.progress{height:10px;background:#f2edf5;border-radius:999px;overflow:hidden;margin:10px 0}.bar{height:100%;width:0;background:linear-gradient(90deg,#e7a9ce,#b8a6f3,#a4d9e9);border-radius:999px;transition:width .3s}.rowline{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--muted)}.card-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}.smallbtn{border:1px solid var(--line);background:#fff8fc;border-radius:999px;padding:9px 12px;font-size:12px;font-weight:800;color:var(--ink)}.empty{grid-column:1/-1;text-align:center;padding:34px 20px;border:1px dashed #d8cbdc;border-radius:24px;color:var(--muted);background:#ffffff80}.list{display:grid;gap:10px}.item{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:13px;border:1px solid var(--line);border-radius:17px;background:#fff}.item strong{display:block}.item .right{text-align:right;white-space:nowrap}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:grid;gap:6px}.field label{font-size:12px;color:var(--muted);font-weight:800}.field input,.field select,.field textarea{width:100%;border:1px solid #e7dfea;border-radius:14px;padding:12px;background:#fff;color:var(--ink);outline-color:#c8b5e7}.field.full{grid-column:1/-1}.note{background:#fff8e9;border:1px solid #f4e5c4;padding:13px 15px;border-radius:16px;color:#7d6535;font-size:13px;line-height:1.45;margin-bottom:15px}.hidden{display:none!important}.modalback{position:fixed;inset:0;background:#2e233c55;display:grid;place-items:center;padding:16px;z-index:5}.modal{background:#fff;border-radius:26px;padding:22px;width:min(100%,500px);max-height:90vh;overflow:auto;box-shadow:0 20px 80px #30203b30}.modal h2{margin:0 0 5px}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.xbtn{background:#f7f0f7;border-radius:50%;width:35px;height:35px;font-size:20px}.foot{text-align:center;color:var(--muted);font-size:11px;margin-top:28px;line-height:1.5}
+@media(max-width:650px){.shell{padding:15px 12px 80px}.hero{padding:23px;border-radius:25px}.stats{gap:8px}.stat{padding:13px;border-radius:17px}.stat strong{font-size:20px}.grid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.sectionhead h2{font-size:21px}.brand{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <div><div class="brand">goalie <span>✦</span></div><div class="tag">your people • your plans • your goals</div></div>
+    <button class="pill" id="shareBtn">↗ Share app</button>
+  </header>
+  <section class="hero">
+    <div class="eyebrow">little goals, big plans</div>
+    <h1>Make it happen<br>together.</h1>
+    <p>Save for the things you’re excited about, plan the details, and watch the progress add up.</p>
+    <div class="actions"><button class="primary" id="heroAdd">＋ Create a goal</button><button class="secondary" id="joinBtn">Join with code</button></div>
+  </section>
+  <div class="note" id="setupNote">This starter version saves data on this device. To share live updates with friends, connect a free database using the setup guide included with the download.</div>
+  <section class="stats">
+    <div class="stat"><small>ALL SAVED</small><strong id="allSaved">$0</strong></div>
+    <div class="stat"><small>ACTIVE GOALS</small><strong id="goalCount">0</strong></div>
+    <div class="stat"><small>STILL TO GO</small><strong id="leftAmount">$0</strong></div>
+  </section>
+  <nav class="tabs">
+    <button class="tab active" data-tab="goals">✦ Goals</button><button class="tab" data-tab="planner">♡ Planner</button><button class="tab" data-tab="people">☻ People</button><button class="tab" data-tab="explore">⌕ Explore</button>
+  </nav>
+  <main>
+    <section id="goalsPanel">
+      <div class="sectionhead"><div><h2>Your goals</h2><p>Every little bit gets you closer.</p></div><button class="primary" id="newGoalBtn">＋ New goal</button></div>
+      <div id="goalsGrid" class="grid"></div>
+    </section>
+    <section id="plannerPanel" class="hidden">
+      <div class="sectionhead"><div><h2>The plan</h2><p>Keep ideas, dates, and estimated costs together.</p></div><button class="primary" id="newEventBtn">＋ Add plan</button></div>
+      <div id="eventsList" class="list"></div>
+    </section>
+    <section id="peoplePanel" class="hidden">
+      <div class="sectionhead"><div><h2>Your people</h2><p>See who has contributed to your goals.</p></div><button class="primary" id="newPersonBtn">＋ Add person</button></div>
+      <div id="peopleList" class="list"></div>
+    </section>
+    <section id="explorePanel" class="hidden">
+      <div class="sectionhead"><div><h2>Explore ideas</h2><p>Find places and activities to add to the plan.</p></div></div>
+      <div class="card">
+        <div class="field"><label for="searchQuery">Search places, food, activities, or shops</label><input id="searchQuery" placeholder="e.g. cute cafés, bowling, concert venue"></div>
+        <div class="actions" style="margin-top:12px"><button class="primary" id="mapsBtn">Search on Maps ↗</button><button class="secondary" id="webBtn">Search the web ↗</button></div>
+      </div>
+      <p class="muted" style="margin-top:12px">Search opens Maps or the web in a new tab. You can add an idea to your planner after you find it.</p>
+    </section>
+  </main>
+  <div class="foot">Goalie is a planning and savings tracker, not a bank or payment processor.<br>Recorded contributions are notes only; no money moves through this starter app.</div>
+</div>
+<div id="modalBack" class="modalback hidden"><div class="modal"><div class="modalhead"><div><h2 id="modalTitle">Create a goal</h2><div class="muted" id="modalSub">Make a plan with your people.</div></div><button class="xbtn" id="closeModal">×</button></div><div id="modalBody"></div></div></div>
+<script>
+const KEY='goalie_web_v1';
+const seed={people:[{id:'p1',name:'You'}],goals:[],events:[]};
+let data=load();
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||seed}catch{return seed}}
+function save(){localStorage.setItem(KEY,JSON.stringify(data));render()}
+function id(){return Math.random().toString(36).slice(2,10)}
+function money(n){return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(Number(n)||0)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function sumGoal(g){return (g.contributions||[]).reduce((a,c)=>a+(Number(c.amount)||0),0)}
+function totalSaved(){return data.goals.reduce((a,g)=>a+sumGoal(g),0)}
+function totalTarget(){return data.goals.reduce((a,g)=>a+(Number(g.target)||0),0)}
+function render(){
+ document.getElementById('allSaved').textContent=money(totalSaved());
+ document.getElementById('goalCount').textContent=data.goals.length;
+ document.getElementById('leftAmount').textContent=money(Math.max(0,totalTarget()-totalSaved()));
+ const grid=document.getElementById('goalsGrid');
+ grid.innerHTML=data.goals.length?data.goals.map(g=>{
+  const saved=sumGoal(g),target=Number(g.target)||0,pct=target?Math.min(100,Math.round(saved/target*100)):0;
+  return `<article class="card"><div class="goal-top"><div><div class="emoji">${esc(g.emoji||'✦')}</div><div class="goal-title">${esc(g.name)}</div><div class="muted">${g.deadline?'Target date: '+esc(g.deadline):'No deadline yet'} · ${esc(g.people?.length||0)} people</div></div><button class="smallbtn" data-delete-goal="${g.id}">•••</button></div><div class="amount">${money(saved)} <span class="muted">of ${money(target)}</span></div><div class="progress"><div class="bar" style="width:${pct}%"></div></div><div class="rowline"><span>${pct}% saved</span><span>${money(Math.max(0,target-saved))} left</span></div><div class="card-actions"><button class="smallbtn" data-add-money="${g.id}">＋ Record contribution</button><button class="smallbtn" data-details="${g.id}">View activity</button></div></article>`
+ }).join(''):`<div class="empty"><div style="font-size:35px;margin-bottom:8px">🌷</div><strong>No goals yet!</strong><p>Start with a concert, trip, gift, or anything you’re saving for.</p><button class="primary" id="emptyCreate">Create your first goal</button></div>`;
+ const peopleList=document.getElementById('peopleList');
+ peopleList.innerHTML=data.people.length?data.people.map(p=>{
+  const contributed=data.goals.reduce((a,g)=>a+(g.contributions||[]).filter(c=>c.personId===p.id).reduce((b,c)=>b+Number(c.amount||0),0),0);
+  return `<div class="item"><div><strong>☻ ${esc(p.name)}</strong><span class="muted">${data.goals.reduce((a,g)=>a+(g.contributions||[]).filter(c=>c.personId===p.id).length,0)} contributions recorded</span></div><div class="right"><strong>${money(contributed)}</strong><span class="muted">total saved</span></div></div>`
+ }).join(''):`<div class="empty">Add your people to keep track of contributions.</div>`;
+ const events=document.getElementById('eventsList');
+ const sorted=[...data.events].sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+ events.innerHTML=sorted.length?sorted.map(e=>`<div class="item"><div><strong>♡ ${esc(e.title)}</strong><span class="muted">${[e.date,e.time,e.place].filter(Boolean).map(esc).join(' · ')||'Date not set'}</span></div><div class="right"><strong>${e.cost?money(e.cost):'—'}</strong><button class="smallbtn" data-delete-event="${e.id}">Remove</button></div></div>`).join(''):`<div class="empty"><div style="font-size:35px;margin-bottom:8px">🗓️</div><strong>Your plans go here.</strong><p>Add activities, dates, places, and estimated costs.</p><button class="primary" id="emptyEvent">Add a plan</button></div>`;
+ document.getElementById('setupNote').classList.toggle('hidden',!!localStorage.getItem('goalie_setup_dismissed'));
+ bindDynamic();
+}
+function bindDynamic(){
+ document.querySelectorAll('[data-add-money]').forEach(b=>b.onclick=()=>contributionModal(b.dataset.addMoney));
+ document.querySelectorAll('[data-details]').forEach(b=>b.onclick=()=>detailsModal(b.dataset.details));
+ document.querySelectorAll('[data-delete-goal]').forEach(b=>b.onclick=()=>{if(confirm('Delete this goal and its recorded contributions?')){data.goals=data.goals.filter(g=>g.id!==b.dataset.deleteGoal);save()}});
+ document.querySelectorAll('[data-delete-event]').forEach(b=>b.onclick=()=>{data.events=data.events.filter(e=>e.id!==b.dataset.deleteEvent);save()});
+ const ec=document.getElementById('emptyCreate');if(ec)ec.onclick=goalModal;
+ const ee=document.getElementById('emptyEvent');if(ee)ee.onclick=eventModal;
+}
+const back=document.getElementById('modalBack');
+function openModal(title,sub,html,submitText,submitFn){
+ document.getElementById('modalTitle').textContent=title;document.getElementById('modalSub').textContent=sub;document.getElementById('modalBody').innerHTML=html;
+ back.classList.remove('hidden');
+ const form=document.getElementById('modalForm');if(form)form.onsubmit=e=>{e.preventDefault();submitFn(new FormData(form));};
+}
+function closeModal(){back.classList.add('hidden')}
+document.getElementById('closeModal').onclick=closeModal;back.onclick=e=>{if(e.target===back)closeModal()};
+function goalModal(){
+ openModal('Create a goal','Give your next big plan a home.',`<form id="modalForm"><div class="formgrid"><div class="field full"><label>Goal name</label><input name="name" placeholder="e.g. Concert weekend" required maxlength="60"></div><div class="field"><label>Target amount ($)</label><input name="target" type="number" min="1" step=".01" placeholder="1000" required></div><div class="field"><label>Target date (optional)</label><input name="deadline" type="date"></div><div class="field"><label>Emoji</label><select name="emoji"><option>🎟️</option><option>✈️</option><option>🌴</option><option>🎂</option><option>🎁</option><option>🚗</option><option>🛍️</option><option>🏡</option><option>✦</option></select></div><div class="field"><label>People in this goal</label><input name="people" placeholder="You, Alex, Mia"></div></div><div style="margin-top:18px"><button class="primary" type="submit">Create goal ✦</button></div></form>`,null,f=>{
+ const names=(f.get('people')||'').split(',').map(s=>s.trim()).filter(Boolean);
+ names.forEach(name=>{if(!data.people.some(p=>p.name.toLowerCase()===name.toLowerCase()))data.people.push({id:id(),name})});
+ const selected=data.people.filter(p=>names.length?names.some(n=>n.toLowerCase()===p.name.toLowerCase()):p.name==='You').map(p=>p.id);
+ data.goals.unshift({id:id(),name:f.get('name'),target:Number(f.get('target')),deadline:f.get('deadline'),emoji:f.get('emoji'),people:selected,contributions:[]});
+ save();closeModal()
+ });
+}
+function contributionModal(goalId){
+ const g=data.goals.find(x=>x.id===goalId);if(!g)return;
+ const opts=data.people.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join('');
+ openModal('Record contribution','This records a contribution; it does not move money.',`<form id="modalForm"><div class="formgrid"><div class="field full"><label>Who saved it?</label><select name="personId">${opts}</select></div><div class="field"><label>Amount ($)</label><input name="amount" type="number" min=".01" step=".01" required placeholder="25"></div><div class="field"><label>How was it saved?</label><select name="method"><option>Cash saved</option><option>Card recorded</option><option>Apple Pay recorded</option><option>Other</option></select></div><div class="field full"><label>Note (optional)</label><input name="note" placeholder="e.g. babysitting money"></div></div><div style="margin-top:18px"><button class="primary" type="submit">Save contribution</button></div></form>`,null,f=>{
+ if(!g.contributions)g.contributions=[];
+ g.contributions.push({id:id(),personId:f.get('personId'),amount:Number(f.get('amount')),method:f.get('method'),note:f.get('note'),date:new Date().toISOString().slice(0,10)});
+ if(!g.people.includes(f.get('personId')))g.people.push(f.get('personId'));
+ save();closeModal()
+ });
+}
+function detailsModal(goalId){
+ const g=data.goals.find(x=>x.id===goalId);if(!g)return;
+ const rows=(g.contributions||[]).slice().reverse().map(c=>{const p=data.people.find(p=>p.id===c.personId);return `<div class="item"><div><strong>${esc(p?.name||'Someone')} · ${money(c.amount)}</strong><span class="muted">${esc(c.date||'')} · ${esc(c.method||'')}${c.note?' · '+esc(c.note):''}</span></div></div>`}).join('');
+ openModal(g.name,'Contribution activity',`<div class="stat" style="margin-bottom:12px"><small>PROGRESS</small><strong>${money(sumGoal(g))} / ${money(g.target)}</strong></div><div class="list">${rows||'<div class="empty">No contributions yet.</div>'}</div><div style="margin-top:15px"><button class="primary" id="detailsAdd">＋ Record contribution</button></div>`,null,()=>{});
+ document.getElementById('detailsAdd').onclick=()=>{closeModal();contributionModal(goalId)};
+}
+function eventModal(){
+ openModal('Add a plan','An activity, restaurant, event, or travel detail.',`<form id="modalForm"><div class="formgrid"><div class="field full"><label>What are you planning?</label><input name="title" required placeholder="e.g. Dinner before the concert"></div><div class="field"><label>Date</label><input name="date" type="date"></div><div class="field"><label>Time (optional)</label><input name="time" type="time"></div><div class="field full"><label>Place / address</label><input name="place" placeholder="Venue, restaurant, or town"></div><div class="field"><label>Estimated cost ($)</label><input name="cost" type="number" min="0" step=".01" placeholder="45"></div></div><div style="margin-top:18px"><button class="primary" type="submit">Add to planner</button></div></form>`,null,f=>{
+ data.events.push({id:id(),title:f.get('title'),date:f.get('date'),time:f.get('time'),place:f.get('place'),cost:Number(f.get('cost')||0)});
+ save();closeModal()
+ });
+}
+function personModal(){
+ openModal('Add a person','Add someone to your planning group.',`<form id="modalForm"><div class="field"><label>Name or nickname</label><input name="name" required maxlength="40" placeholder="e.g. Mia"></div><div style="margin-top:18px"><button class="primary" type="submit">Add person</button></div></form>`,null,f=>{
+ const name=f.get('name').trim();if(name&&!data.people.some(p=>p.name.toLowerCase()===name.toLowerCase()))data.people.push({id:id(),name});save();closeModal()
+ });
+}
+function switchTab(tab){
+ document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+ ['goals','planner','people','explore'].forEach(t=>document.getElementById(t+'Panel').classList.toggle('hidden',t!==tab));
+}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>switchTab(b.dataset.tab));
+document.getElementById('newGoalBtn').onclick=goalModal;document.getElementById('heroAdd').onclick=goalModal;document.getElementById('newEventBtn').onclick=eventModal;document.getElementById('newPersonBtn').onclick=personModal;
+document.getElementById('joinBtn').onclick=()=>openModal('Join a shared goal','Shared groups need a connected database. This starter is local-only.',`<div class="note">The share/join flow is a placeholder until the free online database is connected. The setup guide explains the next step.</div><button class="primary" id="gotIt">Got it</button>`,null,()=>{});
+document.getElementById('gotIt')?.addEventListener('click',closeModal);
+document.getElementById('shareBtn').onclick=async()=>{try{if(navigator.share)await navigator.share({title:'Goalie ✦',text:'Plan goals and save together with Goalie.'});else{await navigator.clipboard.writeText(location.href);alert('Page link copied! Note: a link only works for others after you publish the website.')}}catch{}};
+document.getElementById('mapsBtn').onclick=()=>{const q=document.getElementById('searchQuery').value.trim();if(q)window.open('https://www.google.com/maps/search/'+encodeURIComponent(q),'_blank','noopener')};
+document.getElementById('webBtn').onclick=()=>{const q=document.getElementById('searchQuery').value.trim();if(q)window.open('https://www.google.com/search?q='+encodeURIComponent(q),'_blank','noopener')};
+render();
+</script>
+</body>
+</html>
